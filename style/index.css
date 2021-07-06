@@ -2,10 +2,8 @@
     margin: 0;
     padding:0;
     box-sizing: border-box;
-    /* background-image: url("https://cdn.wallpapersafari.com/25/49/3Pq2Nd.jpg"); */
-    /* background-image: linear-gradient(to bottom right, blue, pink ) ;
-    background-repeat: no-repeat;
-} */}
+    background-image: url("https://cdn.wallpapersafari.com/25/49/3Pq2Nd.jpg");
+}
 
 header > img{
     width: 100%;

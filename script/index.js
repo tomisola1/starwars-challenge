@@ -1,24 +1,9 @@
-function main(){
   
   //fetch data from api
-  console.log("starting api call")
-  window.addEventListener("DOMContentLoaded", callApi);
-  console.log("done with api")
-  // const lowerCard = document.querySelectorAll('#lower__card')
-  // const imageClick = document.querySelectorAll('#image_click');
-  
-  // console.log(lowerCard);
-  // console.log("Adding event listeners")
-  // imageClick.forEach((img, index) => {
-  //   img.addEventListener('click', () => {
-  //     lowerCard[index].classList.toggle('hidden')
-  //   });
-//  });
-
-}
+window.addEventListener("DOMContentLoaded", callApi);
 
 
-async function callApi(){
+function callApi(){
   const images = [
     "luke_skywalker.jpeg",
     "beru_lars.jpeg",
@@ -34,15 +19,21 @@ async function callApi(){
 
     //fetch characters from the https://swapi.dev/api/people
     const apiURL = "https://swapi.dev/api/people";
-  await fetch(apiURL)
-  .then(response=> response.json() )
-  .then( data=> {
+
+
+  fetch(apiURL)
+    .then(   function(response){ return response.json() }   )
+    .then( data=> {
     //get array of characters from data
     let characters = data.results;
     //dynamically create containers for characters
     characters.forEach( (character,index)=>{
           let character_container = document.createElement("div");
+          //<div> </div>
           character_container.classList.add("card__container")
+          //<div class="card__container">
+          
+          //</div>
 
           let character_container_string = `  
           <div class="image__container">
@@ -58,16 +49,17 @@ async function callApi(){
           </div>  `
 
           character_container.innerHTML = character_container_string;
+       
 
-      // add the character container to the root
-      const rootContainer = document.getElementById("root");
-      rootContainer.appendChild( character_container );
-
-      let nameSlot = document.getElementById(`name-slot${index}`);
-      let lowerCard = document.getElementById(`lower__card${index}`);
-      nameSlot.addEventListener('click', () => {
-        lowerCard.classList.toggle('hidden')
-      });
+         // add the character container to the root
+         const rootContainer = document.getElementById("root");
+         rootContainer.appendChild( character_container );
+         
+         let nameSlot = document.getElementById(`name-slot${index}`);
+         let lowerCard = document.getElementById(`lower__card${index}`);
+         nameSlot.addEventListener('click', () => {
+           lowerCard.classList.toggle('hidden')
+         });
       
 
 
@@ -77,7 +69,9 @@ async function callApi(){
   });
 }
     
-main()
+
+
+
 
 
 
